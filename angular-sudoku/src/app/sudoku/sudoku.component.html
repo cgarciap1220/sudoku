@@ -1,0 +1,26 @@
+<div class="sudoku">
+  <div class="inline">
+    <h3>SUDOKU</h3>
+    <table style='border-collapse:collapse;border-spacing:0;border:1px solid #000;'>
+      <tr *ngFor="let inicial of matrixInicial; let i = index" style="">
+        <td  style='width:40px;height:40px;text-align:center;border:1px solid #000;font-size: 30px; ' *ngFor="let item of inicial">{{ item.value}}</td>
+      </tr>
+    </table>
+    <br>
+    <button class="btn btn-success" *ngIf="matrixFinal.length > 0" (click)="resolverSudoku()" disabled>Resolver</button>
+    <button class="btn btn-success" *ngIf="matrixFinal.length == 0" (click)="resolverSudoku()" >Resolver</button>
+
+  </div>
+
+  <div class="inline" *ngIf="matrixFinal.length > 0">
+    <h3>SOLUCIÓN</h3>
+    <table style='border-collapse:collapse;border-spacing:0;border:1px solid #000;'>
+      <tr *ngFor="let final of matrixFinal; let i = index" style="">
+        <td  style='width:40px;height:40px;text-align:center;border:1px solid #000;font-size: 30px; ' *ngFor="let item of final">{{ item.value}}</td>
+      </tr>
+    </table>
+    <br>
+    <button class="btn btn-primary"(click)="empezar()">Empezar</button>
+  </div>
+</div>
+
